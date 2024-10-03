@@ -1,17 +1,14 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 export default function RandomColor() {
   const [typeofColor, setTypeofColor] = useState("hex");
   const [color, setColor] = useState("#000000");
-  const colorInformationRef = useRef(null);
-  useEffect(() => {
-    if (colorInformationRef.current) {
-      colorInformationRef.current.textContent = `Type-${typeofColor} Color-${color}`;
-    }
-  }, [typeofColor, color]); // Using useRef to reference the d
+  function RandomGen(length) {
+    return Math.floor(Math.random() * length);
+  }
   function randomRGBcolor() {
-    const RGBcolor = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(
-      Math.random() * 256
-    )},${Math.floor(Math.random() * 256)})`;
+    const RGBcolor = `rgb(${RandomGen(256)},${RandomGen(256)},${RandomGen(
+      256
+    )})`;
     setColor(RGBcolor);
     setTypeofColor("rgb");
   }
@@ -19,7 +16,7 @@ export default function RandomColor() {
     const str = "0123456789ABCDEF";
     let rcolor = "#";
     for (let i = 0; i < 6; i++) {
-      rcolor += str[Math.floor(Math.random() * str.length)];
+      rcolor += str[RandomGen(str.length)];
     }
     setColor(rcolor);
     setTypeofColor("hex");
@@ -64,19 +61,20 @@ export default function RandomColor() {
           Change
         </button>
         <div
-          ref={colorInformationRef} // Use ref instead of document.querySelector
-          className="color-information"
           style={{
-            color: "whitesmoke",
-            height: "auto", // Adjust to fit larger content
-            width: "auto", // Adjust to fit larger content
-            margin: "30px auto",
-            padding: "10px", // Add some padding
-            textAlign: "center", // Center the text
-            minWidth: "150px", // Set minimum width
-            border: "1px solid white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "#fff",
+            fontSize: "10px",
+            marginTop: "50px",
+            flexDirection: "column",
+            gap: "20px",
           }}
-        ></div>
+        >
+          <h3>{typeofColor === "rgb" ? "RGB Color" : "HEX Color"}</h3>
+          <h1>{color}</h1>
+        </div>
       </div>
     </>
   );
