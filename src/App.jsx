@@ -8,6 +8,8 @@ import TreeView from "./components/tree-view";
 import menus from "./components/tree-view/data";
 import QRCodeGenerator from "./components/qr-code-generator";
 import TicTacToe from "./components/tic-tac-toe";
+import ScrollIndicator from "./components/scrollIndicator";
+import UseFetchHookTest from "./components/use-fetch/test";
 function App() {
   return (
     <>
@@ -19,6 +21,8 @@ function App() {
       <QRCodeGenerator />
       <TreeView menus={menus} />
       <TicTacToe />
+      <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} />
+      <UseFetchHookTest />
     </>
   );
 }
