@@ -5,6 +5,7 @@ import ImageSlider from "./components/imageSlider";
 import "./App.css";
 import LoadMoreButton from "./components/loadMoreButton";
 
+import QRCodeGenerator from "./components/qr-code-generator";
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
       <StarRating />
       <ImageSlider url="https://picsum.photos/v2/list" limit={10} />
       <LoadMoreButton />
+      <QRCodeGenerator />
     </>
   );
 }
