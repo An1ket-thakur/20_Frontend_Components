@@ -3,6 +3,8 @@
 //6 7 8
 import "./styles.css";
 import { useEffect, useState } from "react";
+// Added PropTypes because ESLint extension showing prop validation errors
+//Code will work fine without this
 import PropTypes from "prop-types";
 Square.propTypes = {
   id: PropTypes.string.isRequired,
