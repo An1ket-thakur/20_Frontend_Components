@@ -18,6 +18,7 @@ import GithubProfileFinder from "./components/github-profile-finder";
 import ResizeTest from "./components/use-window-resize/test";
 import ModalTest from "./components/custom-modal-popup/modaltest";
 import LightDarkTheme from "./components/light-dark-mode";
+import SearchAutocomplete from "./components/search-autocomplete-with-api";
 function App() {
   return (
     <>
@@ -39,6 +40,7 @@ function App() {
       <ResizeTest />
       <ModalTest />
       <LightDarkTheme />
+      <SearchAutocomplete />
     </>
   );
 }
